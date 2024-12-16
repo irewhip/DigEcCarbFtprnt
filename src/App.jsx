@@ -30,12 +30,16 @@ export default function App() {
 		}
 
 		const kilograms = grams / 1000;
+		const tons = kilograms / 1000;
 
-		if (Math.floor(kilograms) > 0) {
+		if (Math.floor(tons) > 0) {
+			return Math.round(tons * 10) / 10 + " Tons";
+		} else if (Math.floor(kilograms) > 0) {
 			return Math.round(kilograms * 10) / 10 + " Kilograms";
 		} else {
 			return Math.round(grams * 10) / 10 + " Grams";
 		}
+
 	});
 
 	return (<>

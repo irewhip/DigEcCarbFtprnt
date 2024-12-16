@@ -1,0 +1,63 @@
+/* -----------------------------------------------------------------
+Color Palette: https://colorhunt.co/palette/fdf7f48eb486997c70685752
+----------------------------------------------------------------- */
+
+* {
+	margin: 0;
+	padding: 0;
+}
+
+body {
+	background-color: #FDF7F4;
+	color: #997C70;
+
+	padding: 20px;
+	font-family: sans-serif;
+}
+
+#root {
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	gap: 60px;
+}
+
+.form {
+	display: flex;
+	flex-direction: column;
+	gap: 30px;
+}
+
+h1, b {
+	color: #685752;
+}
+
+label {
+	display: block;
+	font-style: italic;
+	font-size: small;
+	margin-bottom: 6px;
+}
+
+label::before {
+	content: "⇒ ";
+}
+
+input {
+	color: #8EB486;
+}
+
+input.hide {
+	width: 3ch;
+	background: transparent;
+	font-size: xx-large;
+	border: none;
+	outline: none;
+}
+
+select {
+	color: #997C70;
+	background: transparent;
+	outline: 1px solid #997C70;
+	border: none;
+}

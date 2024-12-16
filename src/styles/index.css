@@ -29,6 +29,7 @@ body {
 }
 
 h1, b {
+	text-align: center;
 	color: #685752;
 }
 

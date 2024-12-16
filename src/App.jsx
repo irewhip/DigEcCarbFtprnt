@@ -10,7 +10,7 @@ export default function App() {
 	const energySupplyCoofs = new Map([
 		["Netflix / YouTube (HD videos)", 0.15],
 		["Netflix / YouTube (4K videos)", 0.6],
-		["TikTok", 0.1]
+		["TikTok", 0.1],
 	]);
 	const regionCoofs = new Map([
 		["Europe", 300],
@@ -40,7 +40,7 @@ export default function App() {
 
 	return (<>
 		<div>
-			<h1>CO<sub>2</sub> Calculator</h1>
+			<h1 className="center">CO<sub>2</sub> Calculator</h1>
 			<p>Find out how much <b>carbon dioxide</b> was emitted when you used your favorite online platform</p>
 		</div>
 		<div className="form">

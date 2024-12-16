@@ -10,7 +10,7 @@ export default function App() {
 	const energySupplyCoofs = new Map([
 		["Netflix / YouTube (HD videos)", 0.15],
 		["Netflix / YouTube (4K videos)", 0.6],
-		["TikTok", 0.1],
+		["TikTok", 1000.0],	// 0.1
 	]);
 	const regionCoofs = new Map([
 		["Europe", 300],

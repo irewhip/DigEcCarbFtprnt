@@ -10,13 +10,18 @@ Color Palette: https://colorhunt.co/palette/fdf7f48eb486997c70685752
 
 body {
 	background-color: #FDF7F4;
-	color: #997C70;
-
-	padding: 20px;
-	font-family: sans-serif;
+	padding: 0;
+	margin: 0;
 }
 
 #root {
+	color: #997C70;
+	min-height: 100vh;
+	box-sizing: border-box;
+
+	padding: 20px;
+	font-family: sans-serif;
+
 	width: 100%;
 	display: flex;
 	flex-direction: column;
@@ -34,10 +39,14 @@ h1, b {
 	color: #685752;
 }
 
+h1 {
+	font-size: xx-large;
+}
+
 label {
 	display: block;
 	font-style: italic;
-	font-size: small;
+	font-size: 16px;
 	margin-bottom: 6px;
 }
 
@@ -55,6 +64,7 @@ input.hide {
 	font-size: xx-large;
 	border: none;
 	outline: none;
+	font-size: 30px;
 }
 
 select {
@@ -62,4 +72,14 @@ select {
 	background: transparent;
 	outline: 1px solid #997C70;
 	border: none;
+	font-size: 14px;
+}
+
+.copyright {
+	display: block;
+	flex: 1;
+	margin-top: auto;
+	align-content: end;
+	color: #b3998e;
+	font-size: 12px;
 }

@@ -2,20 +2,34 @@ import {createMemo, createSignal} from "solid-js";
 
 export default function App() {
 	const powerSupplyCoofs = new Map([
-		["PC", 0.15],
-		["Laptop", 0.06],
-		["Smartphone", 0.01],
-		["TV", 0.05],
+		["PC", 5.7],
+		["Laptop", 2.85],
+		["Smartphone", 0.46],
+		["TV 50\" 4K", 17.81],
 	]);
 	const energySupplyCoofs = new Map([
-		["Netflix / YouTube (HD videos)", 0.15],
-		["Netflix / YouTube (4K videos)", 0.6],
-		["TikTok", 0.0],	// 0.1
+		["Netflix / YouTube (HD videos)", 36],
+		["Netflix / YouTube (4K videos)", 84],
+		["Netflix / YouTube (SD videos)", 8.4],
+		["TikTok", 157.8],
+		["Reddit", 148.8],
+		["Pinterest", 78],
+		["Instagram", 78],
+		["Facebook", 47.4],
+		["Twitter", 36],
+		["Twitch", 33],
+		["Snapchat", 52.2],
 	]);
 	const regionCoofs = new Map([
-		["Europe", 300],
-		["USA", 400],
-		["Country using renewable energy sources", 50],
+		["World", 0.719],
+		["Ukraine", 0.8730],
+		["Japan", 0.789],
+		["United Kingdom", 0.596],
+		["Germany", 0.44],
+		["New Zealand", 0.186],
+		["USA", 0.797],
+		["Poland", 0.825],
+		["Canada", 0.325],
 	]);
 
 	const [spentTime, setSpentTime] = createSignal("0");
@@ -24,7 +38,12 @@ export default function App() {
 	const [region, setRegion] = createSignal(regionCoofs.values().next().value + '');
 
 	let calc = createMemo(() => {
-		const grams = Number.parseInt(spentTime()) * Number.parseFloat(powerSupply()) * Number.parseFloat(energySupply()) * Number.parseInt(region());
+		const hours = Number.parseInt(spentTime());
+		const wasteDevicePerHour = Number.parseFloat(powerSupply());
+		const wastePlatformPerHour = Number.parseFloat(energySupply());
+		const shareRegionRES = Number.parseFloat(region());
+
+		const grams = hours * (wasteDevicePerHour + wastePlatformPerHour) * shareRegionRES;
 		if (isNaN(grams)) {
 			return "0 Grams";
 		}
@@ -41,6 +60,8 @@ export default function App() {
 		}
 
 	});
+
+	const currentYear = new Date(Date.now()).getFullYear();
 
 	return (<>
 		<div>
@@ -83,5 +104,6 @@ export default function App() {
 			</div>
 		</div>
 		<h1>{calc}</h1>
+		<p className="copyright">© Oleksandr Yesin 2024{currentYear === 2024 ? "" : " - " + currentYear}. Rivne Regional Scientific Lyceum.<br />All rights reserved.</p>
 	</>);
 }
